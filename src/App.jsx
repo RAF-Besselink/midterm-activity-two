@@ -6,20 +6,24 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import NavBar from './components/NavBar';
-
+import StudentDetails from "./components/StudentDetails";
 
 const App = () => { 
  
-  const bookNumber = 1;
+  const [students, setStudents] = useState([]);
+
+  const addStudent = (student) => {
+    setStudents([...students, student]);
+  };
 
   return (
     <> 
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        
+        <Route path="/home" element={<Home students={students} />} />
+        <Route path="/register" element={<Register addStudent={addStudent} />} />
+        <Route path="/student/:id" element={<StudentDetails students={students} />} />
       </Routes>
     </Router>
     </>

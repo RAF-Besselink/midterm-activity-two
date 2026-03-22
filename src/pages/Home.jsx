@@ -1,13 +1,13 @@
 import {useState, useEffect} from "react";
+import StudentList from "../components/StudentList";
 
 
-const Home = () => {
-    
+export default function Home ({ students }) {
+  
   return (
-    <>
-        <h1>Welcome to the Home Page</h1>
-    </>
-    );
-};
-
-export default Home;
+    <div>
+      <h1>Welcome to Home Page</h1>
+      <StudentList students={students} />
+    </div>
+  );
+}
