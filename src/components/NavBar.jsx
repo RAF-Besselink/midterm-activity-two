@@ -3,18 +3,23 @@ import './NavBar.css';
 
 const NavBar = () => {
     return (
-        <nav>
-      <ul>
-        <li>
-          <Link to="/home">Home</Link>
-        </li>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-        
-      </ul>
+        <nav style={styles.nav}>
+      <Link style={styles.link} to="/home">Home</Link>
+      <Link style={styles.link} to="/register">Register</Link>
     </nav>
     );
-
 }
+const styles = {
+  nav: {
+    padding: "15px",
+    background: "#333",
+    display: "flex",
+    gap: "20px"
+  },
+  link: {
+    color: "white",
+    textDecoration: "none",
+    fontWeight: "bold"
+  }
+};
 export default NavBar;
